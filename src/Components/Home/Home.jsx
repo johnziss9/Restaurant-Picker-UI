@@ -32,8 +32,8 @@
                         <input type="text" className="form-control" id="password" placeholder="Password" />
                     </div>
                     <div className="form-group">
-                        <button type="button" className="btn btn-danger login-form-btn" onClick={this.handleShow}>Cancel</button>
-                        <button type="button" className="btn btn-success login-form-btn">Login</button>
+                        <button type="button" className="btn btn-light login-form-btn" onClick={this.handleShow}>Cancel</button>
+                        <button type="button" className="btn btn-dark login-form-btn">Login</button>
                     </div>
                 </form> 
                 
