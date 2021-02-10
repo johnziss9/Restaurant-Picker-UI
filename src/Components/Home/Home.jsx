@@ -35,9 +35,20 @@
                         <button type="button" className="btn btn-light login-form-btn" onClick={this.handleShow}>Cancel</button>
                         <button type="button" className="btn btn-dark login-form-btn">Login</button>
                     </div>
-                </form> 
-                
-                }
+                </form> }
+
+                {/* <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Add Restaurant</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">View Restaurants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pick Restaurant</a>
+                    </li>
+                </ul> */}
+
             </div>
          );
      }
