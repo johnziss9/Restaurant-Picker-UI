@@ -1,39 +1,40 @@
 import React from 'react';
+import './Menu.css';
+import { Link } from 'react-router-dom';
+import { NavLink } from 'reactstrap';
 
 class Menu extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            user: ''
-        }
 
         this.handleLogout = this.handleLogout.bind(this);
     }
-
-    componentDidMount() {
-        fetch("https://localhost:5001/restaurant/GetAll")
-        .then(response => response.json())
-        .then (data => {
-            this.setState({ 
-                restaurants: data 
-            });
-        });
-    }
-
 
     handleLogout() {
         localStorage.clear();
         this.props.history.push("/");
     }
 
-    render() {        
+    render() {
         return (
-            <div className="container">
-                <h3>Hello sir</h3>
+            <div className="menu-container">
+                {/* <h3>Hello sir</h3>
                 <button type="button" className="btn btn-link" onClick={this.handleLogout}>
                     <span>(Logout)</span>
-                </button>
+                </button> */}
+
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <NavLink tag={Link} to="/Blog">Add Restaurant</NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink tag={Link} to="/ViewRestaurants">View Restaurants</NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink tag={Link} to="/PickRestaurant">Pick Restaurant</NavLink>
+                    </li>
+                </ul>
             </div>
         );
     }
