@@ -51,6 +51,13 @@
         .then((Response) => Response.json())
         .then((result) => {
             console.log(result);
+
+            localStorage.setItem('token', result.data);
+
+            if (result.success == false)
+                alert(result.message);
+            else
+                this.props.history.push('/Menu');
         })
     }
 

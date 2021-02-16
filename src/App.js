@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Home from './Components/Home/Home';
 import ViewRestaurants from './Components/ViewRestaurants/ViewRestaurants';
+import Menu from './Components/Menu/Menu';
+import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,7 +17,7 @@ class App extends React.Component {
         <div>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/ViewRestaurants" component={ViewRestaurants} />
+            <ProtectedRoute path="/Menu" component={props => <Menu {...props } /> } />
           </Switch>
         </div>
       </BrowserRouter>
