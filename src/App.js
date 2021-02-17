@@ -5,6 +5,7 @@ import Home from './Components/Home/Home';
 import ViewRestaurants from './Components/ViewRestaurants/ViewRestaurants';
 import Menu from './Components/Menu/Menu';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
+import AddRestaurant from './Components/AddRestaurant/AddRestaurant';
 
 class App extends React.Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class App extends React.Component {
             <Route exact path="/" component={Home} />
             <ProtectedRoute path="/Home" component={props => <Menu {...props } /> } />
             <ProtectedRoute path="/ViewRestaurants" component={props => <ViewRestaurants {...props } /> } />
+            <ProtectedRoute path="/AddRestaurant" component={props => <AddRestaurant {...props } /> } />
           </Switch>
         </div>
       </BrowserRouter>
