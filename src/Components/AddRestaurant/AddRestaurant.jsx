@@ -23,26 +23,28 @@ class AddRestaurant extends React.Component {
 
     render() {
         return (
-            <div className="container add-restaurant-container">
-                <h2>Add Restaurant</h2>
-                <form>
-                    <div class="form-group">
-                        <label for="restaurant-name">Restaurant Name:</label>
-                        <input type="text" id="restaurant-name" class="form-control" placeholder="Enter Restaurant Name" />
-                    </div>
-                    <div class="form-group">
-                        <label for="restaurant-location">Location</label>
-                        <input type="text" class="form-control" id="restaurant-location" placeholder="Enter Restaurant Location" />
-                    </div>
-                    <label for="restaurant-cuisine">Cuisine</label>
-                    <select class="form-control">
-                        <option>Select Cuisine</option>
-                        {Array.isArray(this.state.cuisines.data) && this.state.cuisines.data.map( c => (
-                            <option key={c}>{c}</option>
-                        ))}
-                    </select>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+            <div className="add-restaurant-container">
+                <div className="container flex-column">
+                    <h1 className="add-restaurant-title">Add Restaurant</h1>
+                    <form>
+                        <div class="form-group">
+                            <label for="restaurant-name">Restaurant Name:</label>
+                            <input type="text" id="restaurant-name" class="form-control" placeholder="Enter Restaurant Name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="restaurant-location">Location</label>
+                            <input type="text" class="form-control" id="restaurant-location" placeholder="Enter Restaurant Location" />
+                        </div>
+                        <label for="restaurant-cuisine">Cuisine</label>
+                        <select class="form-control">
+                            <option>Select Cuisine</option>
+                            {Array.isArray(this.state.cuisines.data) && this.state.cuisines.data.map( c => (
+                                <option key={c}>{c}</option>
+                            ))}
+                        </select>
+                        <button type="submit" class="btn btn-success add-restaurant-submit">Submit</button>
+                    </form>
+                </div>
             </div>
         );
     }
