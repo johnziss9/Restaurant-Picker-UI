@@ -15,7 +15,7 @@ class PickRestaurant extends React.Component {
  
     componentDidMount() {
         fetch("https://localhost:5001/restaurant/GetAllNotVisited")
-        .then(response => response.json())
+        .then (response => response.json())
         .then (data => {
             this.setState({ 
                 restaurants: data 
@@ -24,8 +24,27 @@ class PickRestaurant extends React.Component {
     }
 
     handleRandom() {
-        const rn = Math.floor(Math.random() * this.state.restaurants.data.length);
-        alert(this.state.restaurants.data[rn].name);
+        if (this.state.restaurants.data.length <= 0) {
+            alert('No more restaurants. Please add more restaurants before picking one.')
+        } else {
+            const randomRestaurant = Math.floor(Math.random() * this.state.restaurants.data.length);
+            alert(this.state.restaurants.data[randomRestaurant].name);
+
+            fetch("https://localhost:5001/restaurant", {
+                method: 'put',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    id: this.state.restaurants.data[randomRestaurant].id,
+                    name: this.state.restaurants.data[randomRestaurant].name,
+                    location: this.state.restaurants.data[randomRestaurant].location,
+                    cuisine: this.state.restaurants.data[randomRestaurant].cuisine,
+                    visited: true
+                })
+            })
+            .then (response => response.json())
+        }
     }
 
     render() {
