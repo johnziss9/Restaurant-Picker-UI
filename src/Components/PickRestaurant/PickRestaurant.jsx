@@ -1,6 +1,7 @@
-import moment from 'moment';
 import React from 'react';
 import './PickRestaurant.css'
+import { Link } from 'react-router-dom';
+import { NavLink } from 'reactstrap';
 
 class PickRestaurant extends React.Component {
 
@@ -49,9 +50,12 @@ class PickRestaurant extends React.Component {
 
     render() {
         return (
-            <div className="add-restaurant-container">
+            <div className="pick-restaurant-container">
                 <div className="container flex-column">
-                    <h1 className="add-restaurant-title">Pick Restaurant</h1>
+                    <div className="pick-restaurant-header">
+                        <h1 className="pick-restaurant-title">Pick Restaurant</h1>
+                        <NavLink className="pick-restaurant-go-back" tag={Link} to="/Menu">Main Menu</NavLink>
+                    </div>
                     <button type="button" className="btn btn-success" onClick={this.handleRandom}>Pick a Random Restaurant</button>
                 </div>
             </div>

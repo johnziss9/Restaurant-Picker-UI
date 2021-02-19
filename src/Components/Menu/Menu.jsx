@@ -24,15 +24,15 @@ class Menu extends React.Component {
                     <span>(Logout)</span>
                 </button> */}
 
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <NavLink tag={Link} to="/Blog">Add Restaurant</NavLink>
+                <ul className="nav menu-nav flex-column">
+                    <li className="nav-item">
+                        <NavLink className="menu-nav-link" tag={Link} to="/AddRestaurant">Add Restaurant</NavLink>
                     </li>
-                    <li class="nav-item">
-                        <NavLink tag={Link} to="/ViewRestaurants">View Restaurants</NavLink>
+                    <li className="nav-item">
+                        <NavLink className="menu-nav-link" tag={Link} to="/ViewRestaurants">View Restaurants</NavLink>
                     </li>
-                    <li class="nav-item">
-                        <NavLink tag={Link} to="/PickRestaurant">Pick Restaurant</NavLink>
+                    <li className="nav-item">
+                        <NavLink className="menu-nav-link" tag={Link} to="/PickRestaurant">Pick Restaurant</NavLink>
                     </li>
                 </ul>
             </div>

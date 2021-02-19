@@ -15,3 +15,20 @@
 .add-restaurant-submit {
     margin-top: 25px;
 }
+
+.add-restaurant-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-restaurant-go-back {
+    margin: 45px 0 20px 0;
+    width: 150px;
+    text-align: right;
+    color: #000;
+}
+
+.add-restaurant-go-back:hover {
+    color: #000;
+    font-weight: bold;
+}

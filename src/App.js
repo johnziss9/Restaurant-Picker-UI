@@ -20,6 +20,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <ProtectedRoute path="/Home" component={props => <Menu {...props } /> } />
+            <ProtectedRoute path="/Menu" component={props => <Menu {...props } /> } />
             <ProtectedRoute path="/ViewRestaurants" component={props => <ViewRestaurants {...props } /> } />
             <ProtectedRoute path="/AddRestaurant" component={props => <AddRestaurant {...props } /> } />
             <ProtectedRoute path="/PickRestaurant" component={props => <PickRestaurant {...props } /> } />

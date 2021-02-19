@@ -10,16 +10,16 @@
     justify-content: center;
 }
 
-.nav {
+.menu-nav {
     text-align: center;
 }
 
-.nav-link {
+.menu-nav-link {
     color: #fff;
     font-size: 1.4em;
 }
 
-.nav-link:hover {
+.menu-nav-link:hover {
     color: #fff;
     text-decoration: underline;
     font-size: 1.4em;

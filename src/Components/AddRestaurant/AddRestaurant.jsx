@@ -1,6 +1,7 @@
-import moment from 'moment';
 import React from 'react';
 import './AddRestaurant.css'
+import { Link } from 'react-router-dom';
+import { NavLink } from 'reactstrap';
 
 class AddRestaurant extends React.Component {
 
@@ -68,7 +69,10 @@ class AddRestaurant extends React.Component {
         return (
             <div className="add-restaurant-container">
                 <div className="container flex-column">
-                    <h1 className="add-restaurant-title">Add Restaurant</h1>
+                    <div className="add-restaurant-header">
+                        <h1 className="add-restaurant-title">Add Restaurant</h1>
+                        <NavLink className="add-restaurant-go-back" tag={Link} to="/Menu">Main Menu</NavLink>
+                    </div>
                     <form>
                         <div className="form-group">
                             <label htmlFor="restaurant-name">Restaurant Name:</label>
