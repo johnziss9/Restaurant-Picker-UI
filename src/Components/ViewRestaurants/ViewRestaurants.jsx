@@ -12,7 +12,7 @@ class ViewRestaurants extends React.Component {
    }
 
    componentDidMount() {
-    fetch("https://localhost:5001/restaurant/GetAll")
+    fetch("https://localhost:5001/restaurant/GetAllNotVisited")
     .then(response => response.json())
     .then (data => {
         this.setState({ 
