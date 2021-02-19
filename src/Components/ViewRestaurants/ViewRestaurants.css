@@ -1,9 +1,18 @@
-.container {
+.view-restaurants-container {
+    background: url("../../Images/view-restaurants.jpeg");
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.view-restaurants-lower-container {
     display: flex;
     justify-content: center;
 }
 
-.view-restaurants-container {
+.view-restaurants {
     display: flex;
     flex-flow: row wrap;
     border: 1px solid black;
@@ -23,4 +32,26 @@
     width: 250px;
     height: 200px;
     border-radius: 5%;
+}
+
+.view-restaurants-title {
+    width: 100%;
+    margin: 30px 0 20px 0;
+}
+
+.view-restaurants-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.view-restaurants-go-back {
+    margin: 45px 0 20px 0;
+    width: 150px;
+    text-align: right;
+    color: #000;
+}
+
+.view-restaurants-go-back:hover {
+    color: #000;
+    font-weight: bold;
 }
