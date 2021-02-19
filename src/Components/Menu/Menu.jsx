@@ -12,7 +12,7 @@ class Menu extends React.Component {
     }
 
     handleLogout() {
-        localStorage.clear();
+        sessionStorage.clear();
         this.props.history.push("/");
     }
 

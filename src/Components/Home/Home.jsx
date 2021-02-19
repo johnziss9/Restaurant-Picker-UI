@@ -52,7 +52,7 @@
         .then((result) => {
             console.log(result);
 
-            localStorage.setItem('token', result.data);
+            sessionStorage.setItem('token', result.data);
 
             if (result.success == false)
                 alert(result.message);
