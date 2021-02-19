@@ -34,6 +34,9 @@ class Menu extends React.Component {
                     <li className="nav-item">
                         <NavLink className="menu-nav-link" tag={Link} to="/PickRestaurant">Pick Restaurant</NavLink>
                     </li>
+                    <li className="nav-item">
+                        <NavLink className="menu-nav-link" onClick={this.handleLogout} tag={Link} to="/">Log Out</NavLink>
+                    </li>
                 </ul>
             </div>
         );
