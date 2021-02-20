@@ -1,14 +1,15 @@
 import React from 'react';
 import './PickRestaurant.css'
 import { Link } from 'react-router-dom';
-import { NavLink } from 'reactstrap';
+import { NavLink, Alert } from 'reactstrap';
 
 class PickRestaurant extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            restaurants: []
+            restaurants: [],
+            showErrorAlert: false
         }
 
         this.handleRandom = this.handleRandom.bind(this);
@@ -24,9 +25,19 @@ class PickRestaurant extends React.Component {
         });
     }
 
+    componentDidUpdate(){
+        setTimeout(() => this.setState({
+            showErrorAlert: false
+        }), 6000);
+    }
+
+    handleErrorAlert = () => {
+        this.setState({ showErrorAlert: true })
+    }
+
     handleRandom() {
         if (this.state.restaurants.data.length <= 0) {
-            alert('No more restaurants. Please add more restaurants before picking one.')
+            this.handleErrorAlert();
         } else {
             const randomRestaurant = Math.floor(Math.random() * this.state.restaurants.data.length);
             alert(this.state.restaurants.data[randomRestaurant].name);
@@ -56,6 +67,14 @@ class PickRestaurant extends React.Component {
                         <h1 className="pick-restaurant-title">Pick Restaurant</h1>
                         <NavLink className="pick-restaurant-go-back" tag={Link} to="/Menu">Main Menu</NavLink>
                     </div>
+                    {this.state.showErrorAlert 
+                        ? <Alert color="danger">
+                            <h4>Uh-oh!</h4>
+                            <hr />
+                            <p>No more restaurants. Please add some restaurants before picking one.</p>
+                            <NavLink tag={Link} className="add-restaurant-alert-link" to="/AddRestaurant">Add Restaurant</NavLink>
+                        </Alert>
+                        : null }
                     <button type="button" className="btn btn-success" onClick={this.handleRandom}>Pick a Random Restaurant</button>
                 </div>
             </div>
