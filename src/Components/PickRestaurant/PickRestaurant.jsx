@@ -2,6 +2,7 @@ import React from 'react';
 import './PickRestaurant.css'
 import { Link } from 'react-router-dom';
 import { NavLink, Alert } from 'reactstrap';
+import moment from 'moment';
 
 class PickRestaurant extends React.Component {
 
@@ -9,7 +10,13 @@ class PickRestaurant extends React.Component {
         super(props);
         this.state = {
             restaurants: [],
-            chosenRestaurant: '',
+            chosenRestaurant: {
+                name: '',
+                location: '',
+                cuisine: '',
+                addedBy: '',
+                addedOn: new Date().toLocaleString()
+            },
             showChosenRestaurant: false,
             showErrorAlert: false
         }
@@ -42,11 +49,16 @@ class PickRestaurant extends React.Component {
             this.handleErrorAlert();
         } else {
             const randomRestaurant = Math.floor(Math.random() * this.state.restaurants.data.length);
-            // alert(this.state.restaurants.data[randomRestaurant].name);
 
             this.setState({ 
                 showChosenRestaurant: true, 
-                chosenRestaurant: this.state.restaurants.data[randomRestaurant].name 
+                chosenRestaurant: {
+                    name: this.state.restaurants.data[randomRestaurant].name ,
+                    location: this.state.restaurants.data[randomRestaurant].location,
+                    cuisine: this.state.restaurants.data[randomRestaurant].cuisine,
+                    addedBy: this.state.restaurants.data[randomRestaurant].addedBy,
+                    addedOn: this.state.restaurants.data[randomRestaurant].addedOn,
+                }
             });
 
             fetch("https://localhost:5001/restaurant", {
@@ -94,8 +106,16 @@ class PickRestaurant extends React.Component {
                     {this.state.showChosenRestaurant
                         ?   <div className="chosen-restaurant-container">
                                 <h2 className="chosen-restaurant-title">The randomly chosen restaurant is:</h2>
-                                <h3 className="chosen-restaurant-name">{this.state.chosenRestaurant}</h3>
-                                <button type="button" className="btn btn-primary" onClick={this.handleDone}>Done</button>
+                                <h3 className="chosen-restaurant-name">{this.state.chosenRestaurant.name}</h3>
+                                <div className="chosen-restaurant-info">
+                                    <h4 className="chosen-restaurant-location"><u><b>Location:</b></u> {this.state.chosenRestaurant.location}</h4>
+                                    <h4 className="chosen-restaurant-cuisine"><u><b>Cuisine:</b></u> {this.state.chosenRestaurant.cuisine}</h4>
+                                </div>
+                                <p className="chosen-restaurant-user-date">This restaurant was added by {this.state.chosenRestaurant.addedBy} on {moment(this.state.chosenRestaurant.addedOn).format('MMMM Do YYYY')}.</p>
+                                <button type="button" className="btn btn-dark" onClick={this.handleDone}>
+                                    <span className="glyphicon glyphicon-ok"></span>
+                                    Done
+                                </button>
                             </div>     
                         : null }
 
