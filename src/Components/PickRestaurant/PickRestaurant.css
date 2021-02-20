@@ -38,3 +38,7 @@
 .add-restaurant-alert-link:hover {
     color: #000;
 }
+
+.chosen-restaurant-container {
+    text-align: center;
+}

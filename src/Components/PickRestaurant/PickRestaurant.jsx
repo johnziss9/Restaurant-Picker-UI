@@ -9,6 +9,8 @@ class PickRestaurant extends React.Component {
         super(props);
         this.state = {
             restaurants: [],
+            chosenRestaurant: '',
+            showChosenRestaurant: false,
             showErrorAlert: false
         }
 
@@ -25,11 +27,11 @@ class PickRestaurant extends React.Component {
         });
     }
 
-    componentDidUpdate(){
-        setTimeout(() => this.setState({
-            showErrorAlert: false
-        }), 6000);
-    }
+    // componentDidUpdate(){
+    //     setTimeout(() => this.setState({
+    //         showErrorAlert: false
+    //     }), 6000);
+    // }
 
     handleErrorAlert = () => {
         this.setState({ showErrorAlert: true })
@@ -40,7 +42,12 @@ class PickRestaurant extends React.Component {
             this.handleErrorAlert();
         } else {
             const randomRestaurant = Math.floor(Math.random() * this.state.restaurants.data.length);
-            alert(this.state.restaurants.data[randomRestaurant].name);
+            // alert(this.state.restaurants.data[randomRestaurant].name);
+
+            this.setState({ 
+                showChosenRestaurant: true, 
+                chosenRestaurant: this.state.restaurants.data[randomRestaurant].name 
+            });
 
             fetch("https://localhost:5001/restaurant", {
                 method: 'put',
@@ -59,6 +66,14 @@ class PickRestaurant extends React.Component {
         }
     }
 
+    handleDone = () => {
+        this.setState({
+            showChosenRestaurant: false        
+        });
+
+        this.componentDidMount();
+    }
+
     render() {
         return (
             <div className="pick-restaurant-container">
@@ -75,6 +90,15 @@ class PickRestaurant extends React.Component {
                             <NavLink tag={Link} className="add-restaurant-alert-link" to="/AddRestaurant">Add Restaurant</NavLink>
                         </Alert>
                         : null }
+
+                    {this.state.showChosenRestaurant
+                        ?   <div className="chosen-restaurant-container">
+                                <h2 className="chosen-restaurant-title">The randomly chosen restaurant is:</h2>
+                                <h3 className="chosen-restaurant-name">{this.state.chosenRestaurant}</h3>
+                                <button type="button" className="btn btn-primary" onClick={this.handleDone}>Done</button>
+                            </div>     
+                        : null }
+
                     <button type="button" className="btn btn-success" onClick={this.handleRandom}>Pick a Random Restaurant</button>
                 </div>
             </div>
