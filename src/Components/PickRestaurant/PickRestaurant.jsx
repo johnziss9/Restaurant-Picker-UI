@@ -116,7 +116,7 @@ class PickRestaurant extends React.Component {
                             </div>     
                         : null }
 
-                    <button type="button" className="btn btn-success" onClick={this.handleRandom}>Pick a Random Restaurant</button>
+                    <button type="button" className="btn btn-dark pick-restaurant-button" onClick={this.handleRandom}>Pick a Random Restaurant</button>
                 </div>
             </div>
         );
