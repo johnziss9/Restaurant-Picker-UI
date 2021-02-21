@@ -23,6 +23,7 @@ class Menu extends React.Component {
                 <button type="button" className="btn btn-link" onClick={this.handleLogout}>
                     <span>(Logout)</span>
                 </button> */}
+                {/* <h2>Hello, {sessionStorage.getItem('username')}</h2> */}
 
                 <ul className="nav menu-nav flex-column">
                     <li className="nav-item">

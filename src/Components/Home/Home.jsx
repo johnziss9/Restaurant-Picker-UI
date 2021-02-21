@@ -53,6 +53,7 @@
             console.log(result);
 
             sessionStorage.setItem('token', result.data);
+            sessionStorage.setItem('username', this.state.username);
 
             if (result.success == false)
                 alert(result.message);
