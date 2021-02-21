@@ -7,6 +7,7 @@ import Menu from './Components/Menu/Menu';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 import AddRestaurant from './Components/AddRestaurant/AddRestaurant';
 import PickRestaurant from './Components/PickRestaurant/PickRestaurant';
+import NotFound from './Components/NotFound/NotFound';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class App extends React.Component {
             <ProtectedRoute path="/ViewRestaurants" component={props => <ViewRestaurants {...props } /> } />
             <ProtectedRoute path="/AddRestaurant" component={props => <AddRestaurant {...props } /> } />
             <ProtectedRoute path="/PickRestaurant" component={props => <PickRestaurant {...props } /> } />
+            <Route component={NotFound} />
           </Switch>
         </div>
       </BrowserRouter>
