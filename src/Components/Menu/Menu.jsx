@@ -18,12 +18,14 @@ class Menu extends React.Component {
 
     render() {
         return (
-            <div className="menu-container">
-                {/* <h3>Hello sir</h3>
-                <button type="button" className="btn btn-link" onClick={this.handleLogout}>
-                    <span>(Logout)</span>
-                </button> */}
-                {/* <h2>Hello, {sessionStorage.getItem('username')}</h2> */}
+            <div className="menu-container flex-column">
+                <div className="menu-header row">
+                    <h3>Hello, {sessionStorage.getItem('username')}</h3>
+                    <button type="button" className="btn btn-link" onClick={this.handleLogout}>
+                        <span className="menu-logout-button">(Logout)</span>
+                    </button>
+                </div>
+                
 
                 <ul className="nav menu-nav flex-column">
                     <li className="nav-item">
@@ -34,9 +36,6 @@ class Menu extends React.Component {
                     </li>
                     <li className="nav-item">
                         <NavLink className="menu-nav-link" tag={Link} to="/PickRestaurant">Pick Restaurant</NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink className="menu-nav-link" onClick={this.handleLogout} tag={Link} to="/">Log Out</NavLink>
                     </li>
                 </ul>
             </div>

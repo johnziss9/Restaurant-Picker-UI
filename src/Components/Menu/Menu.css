@@ -10,6 +10,21 @@
     justify-content: center;
 }
 
+.menu-header {
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.menu-logout-button {
+    color: #fff ;
+}
+
+.menu-logout-button:hover {
+    color: #fff ;
+    text-decoration: underline;
+}
+
 .menu-nav {
     text-align: center;
 }

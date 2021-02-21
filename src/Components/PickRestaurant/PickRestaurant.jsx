@@ -10,6 +10,7 @@ class PickRestaurant extends React.Component {
         super(props);
         this.state = {
             restaurants: [],
+            users: [],
             chosenRestaurant: {
                 name: '',
                 location: '',
@@ -25,20 +26,19 @@ class PickRestaurant extends React.Component {
     }
  
     componentDidMount() {
-        fetch("https://localhost:5001/restaurant/GetAllNotVisited")
-        .then (response => response.json())
-        .then (data => {
+        Promise.all([
+            fetch("https://localhost:5001/restaurant/GetAllNotVisited")
+            .then(response => response.json()),
+            fetch("https://localhost:5001/auth/GetAllUsers")
+            .then(response => response.json())
+        ])
+        .then(([restaurantData, userData]) => {
             this.setState({ 
-                restaurants: data 
+                restaurants: restaurantData,
+                users: userData
             });
-        });
+        })
     }
-
-    // componentDidUpdate(){
-    //     setTimeout(() => this.setState({
-    //         showErrorAlert: false
-    //     }), 6000);
-    // }
 
     handleErrorAlert = () => {
         this.setState({ showErrorAlert: true })
@@ -56,7 +56,7 @@ class PickRestaurant extends React.Component {
                     name: this.state.restaurants.data[randomRestaurant].name ,
                     location: this.state.restaurants.data[randomRestaurant].location,
                     cuisine: this.state.restaurants.data[randomRestaurant].cuisine,
-                    addedBy: this.state.restaurants.data[randomRestaurant].addedBy,
+                    addedBy: this.state.users.data[randomRestaurant].username,
                     addedOn: this.state.restaurants.data[randomRestaurant].addedOn,
                 }
             });
@@ -112,10 +112,7 @@ class PickRestaurant extends React.Component {
                                     <h4 className="chosen-restaurant-cuisine"><u><b>Cuisine:</b></u> {this.state.chosenRestaurant.cuisine}</h4>
                                 </div>
                                 <p className="chosen-restaurant-user-date">This restaurant was added by {this.state.chosenRestaurant.addedBy} on {moment(this.state.chosenRestaurant.addedOn).format('MMMM Do YYYY')}.</p>
-                                <button type="button" className="btn btn-dark" onClick={this.handleDone}>
-                                    <span className="glyphicon glyphicon-ok"></span>
-                                    Done
-                                </button>
+                                <button type="button" className="btn btn-dark" onClick={this.handleDone}>Done</button>
                             </div>     
                         : null }
 
