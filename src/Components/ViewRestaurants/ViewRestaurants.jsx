@@ -3,14 +3,16 @@ import React from 'react';
 import './ViewRestaurants.css'
 import { Link } from 'react-router-dom';
 import { NavLink } from 'reactstrap';
+import Loading from '../../Images/loading.gif';
 
 class ViewRestaurants extends React.Component {
 
-   constructor(props) {
-       super(props);
-       this.state = {
-           restaurants: [],
-           users: []
+    constructor(props) {
+        super(props);
+        this.state = {
+        isLoaded: false,
+        restaurants: [],
+        users: [],
        }
    }
 
@@ -20,9 +22,10 @@ class ViewRestaurants extends React.Component {
             .then(response => response.json()),
             fetch("https://localhost:5001/auth/GetAllUsers")
             .then(response => response.json())
-       ])
-       .then(([restaurantData, userData]) => {
+        ])
+        .then(([restaurantData, userData]) => {
             this.setState({ 
+                isLoaded: true,
                 restaurants: restaurantData,
                 users: userData
             });
@@ -30,6 +33,13 @@ class ViewRestaurants extends React.Component {
    }
 
     render() {
+
+        if (!this.state.isLoaded) {
+            return (<div className="view-restaurants-container-loading">
+                        <img src={Loading} alt="loading" className="view-restaurants-loading-gif" />
+                        <p className="view-restaurants-loading-text">Loading Restaurants...</p>
+                    </div>)
+        } else {
         return (
             <div className="view-restaurants-container">
                 <div className="container view-restaurants-header">
@@ -49,7 +59,7 @@ class ViewRestaurants extends React.Component {
                     </div>
                 </div>
             </div>
-        );
+        )};
     }
 }
 
