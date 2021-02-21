@@ -9,18 +9,24 @@ class ViewRestaurants extends React.Component {
    constructor(props) {
        super(props);
        this.state = {
-           restaurants: []
+           restaurants: [],
+           users: []
        }
    }
 
-   componentDidMount() {
-    fetch("https://localhost:5001/restaurant/GetAllNotVisited")
-    .then(response => response.json())
-    .then (data => {
-        this.setState({ 
-            restaurants: data 
-        });
-    });
+    componentDidMount() {
+        Promise.all([
+            fetch("https://localhost:5001/restaurant/GetAllNotVisited")
+            .then(response => response.json()),
+            fetch("https://localhost:5001/auth/GetAllUsers")
+            .then(response => response.json())
+       ])
+       .then(([restaurantData, userData]) => {
+            this.setState({ 
+                restaurants: restaurantData,
+                users: userData
+            });
+       })
    }
 
     render() {
@@ -37,7 +43,7 @@ class ViewRestaurants extends React.Component {
                                 <h4 className="restaurant-name">{res.name}</h4>
                                 <p className="restaurant-location">{res.location}</p>
                                 <p className="restaurant-cuisine">{res.cuisine}</p>
-                                <small className="restaurant-user-details">Added by {res.addedBy} on {moment(res.addedOn).format('MMMM Do YYYY')}</small>
+                                <small className="restaurant-user-details">Added by {this.state.users.data[res.addedBy].username} on {moment(res.addedOn).format('MMMM Do YYYY')}</small>
                             </div>
                         ))}
                     </div>
