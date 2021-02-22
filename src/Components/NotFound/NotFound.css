@@ -9,8 +9,12 @@
     justify-content: center;
 }
 
+.not-found-text {
+    padding: 0 15px 0 15px;
+}
+
 .not-found-content {
     align-self: flex-end;
-    padding-bottom: 10px;
+    padding-bottom: 50px;
     text-align: center;
 }
