@@ -1,7 +1,7 @@
 import React from 'react';
 import './PickRestaurant.css'
 import { Link } from 'react-router-dom';
-import { NavLink, Alert } from 'reactstrap';
+import { NavLink, UncontrolledAlert } from 'reactstrap';
 import moment from 'moment';
 
 class PickRestaurant extends React.Component {
@@ -56,7 +56,7 @@ class PickRestaurant extends React.Component {
                     name: this.state.restaurants.data[randomRestaurant].name ,
                     location: this.state.restaurants.data[randomRestaurant].location,
                     cuisine: this.state.restaurants.data[randomRestaurant].cuisine,
-                    addedBy: this.state.users.data[randomRestaurant].username,
+                    addedBy: this.state.users.data[this.state.restaurants.data[randomRestaurant].addedBy].username,
                     addedOn: this.state.restaurants.data[randomRestaurant].addedOn,
                 }
             });
@@ -95,12 +95,12 @@ class PickRestaurant extends React.Component {
                         <NavLink className="pick-restaurant-go-back" tag={Link} to="/Menu">Main Menu</NavLink>
                     </div>
                     {this.state.showErrorAlert 
-                        ? <Alert color="danger">
+                        ? <UncontrolledAlert color="danger">
                             <h4>Uh-oh!</h4>
                             <hr />
                             <p>No more restaurants. Please add some restaurants before picking one.</p>
                             <NavLink tag={Link} className="add-restaurant-alert-link" to="/AddRestaurant">Add Restaurant</NavLink>
-                        </Alert>
+                        </UncontrolledAlert>
                         : null }
 
                     {this.state.showChosenRestaurant

@@ -1,17 +1,20 @@
 import React from 'react';
 import './AddRestaurant.css'
 import { Link } from 'react-router-dom';
-import { NavLink } from 'reactstrap';
+import { NavLink, UncontrolledAlert } from 'reactstrap';
 
 class AddRestaurant extends React.Component {
 
    constructor(props) {
        super(props);
        this.state = {
-           cuisines: [],
-           name: '',
-           location: '',
-           cuisine: ''
+            cuisines: [],
+            name: '',
+            location: '',
+            cuisine: '',
+            addedBy: null,
+            showThankYouAlert: false,
+            showRestaurantExistsAlert: false
        }
 
         this.handleName = this.handleName.bind(this);
@@ -62,7 +65,20 @@ class AddRestaurant extends React.Component {
                 cuisine: this.state.cuisine
             })
         })
-        .then(response => response.json())
+        .then (response => response.json())
+        .then (data => {
+            if (data.success) {
+                this.setState({
+                    showThankYouAlert: true
+                });
+            }
+            else {
+                this.setState({
+                    showRestaurantExistsAlert: true
+                });
+                console.log(this.state.showRestaurantExistsAlert);
+            }
+        });
     }
 
     render() {
@@ -73,6 +89,21 @@ class AddRestaurant extends React.Component {
                         <h1 className="add-restaurant-title">Add Restaurant</h1>
                         <NavLink className="add-restaurant-go-back" tag={Link} to="/Menu">Main Menu</NavLink>
                     </div>
+                    {this.state.showThankYouAlert ?
+                        <UncontrolledAlert color="success">
+                            <h4>Thank you!</h4>
+                            <hr />
+                            <p>The restaurant has been added and will be included in the next random selection.</p>
+                        </UncontrolledAlert> 
+                        : null}
+                    {this.state.showRestaurantExistsAlert ?
+                        <UncontrolledAlert color="danger">
+                            <h4>Uh-oh!</h4>
+                            <hr />
+                            <p>It looks like the restaurant you are trying to add already exists. Check the View Restaurants page to confirm.</p>
+                            <NavLink tag={Link} className="view-restaurants-alert-link" to="/ViewRestaurants">View Restaurants</NavLink>
+                        </UncontrolledAlert> 
+                        : null}
                     <form>
                         <div className="form-group">
                             <label htmlFor="restaurant-name">Restaurant Name:</label>
@@ -89,7 +120,7 @@ class AddRestaurant extends React.Component {
                                 <option key={c}>{c}</option>
                             ))}
                         </select>
-                        <button type="submit" className="btn btn-success add-restaurant-submit" onClick={this.handleSubmit}>Submit</button>
+                        <button type="button" className="btn btn-success add-restaurant-submit" onClick={this.handleSubmit}>Submit</button>
                     </form>
                 </div>
             </div>
