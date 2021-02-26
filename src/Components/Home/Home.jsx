@@ -1,5 +1,6 @@
  import React from 'react';
  import './Home.css';
+import { UncontrolledAlert } from 'reactstrap';
 
  class Home extends React.Component {
 
@@ -7,6 +8,7 @@
         super(props);
         this.state = {
             isActive: true,
+            loginFail: false,
             username: '',
             password: ''
         }
@@ -50,13 +52,13 @@
         })
         .then((Response) => Response.json())
         .then((result) => {
-            console.log(result);
-
             sessionStorage.setItem('token', result.data);
             sessionStorage.setItem('username', this.state.username);
 
             if (result.success == false)
-                alert(result.message);
+                this.setState({
+                    loginFail: true
+                })
             else
                 this.props.history.push('/Menu');
         })
@@ -64,7 +66,14 @@
 
      render() {
          return (
-            <div className="home-container">
+            <div className="home-container flex-column">
+                {this.state.loginFail ?
+                    <UncontrolledAlert color="danger">
+                        <h4>Uh-oh!</h4>
+                        <hr />
+                        <p>It looks like the username or password you entered is incorrect. Please try again.</p>
+                    </UncontrolledAlert>
+                : null}
                 {this.state.isActive ?
                 <button type="button" className="btn btn-dark btn-lg login-btn" onClick={this.handleHide}>Login</button> :
                 <form>
