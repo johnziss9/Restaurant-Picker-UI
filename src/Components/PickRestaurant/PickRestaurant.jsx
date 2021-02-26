@@ -15,7 +15,6 @@ class PickRestaurant extends React.Component {
                 name: '',
                 location: '',
                 cuisine: '',
-                addedBy: '',
                 addedOn: new Date().toLocaleString()
             },
             showChosenRestaurant: false,
@@ -26,18 +25,20 @@ class PickRestaurant extends React.Component {
     }
  
     componentDidMount() {
-        Promise.all([
-            fetch("https://localhost:5001/restaurant/GetAllNotVisited")
-            .then(response => response.json()),
-            fetch("https://localhost:5001/auth/GetAllUsers")
-            .then(response => response.json())
-        ])
-        .then(([restaurantData, userData]) => {
-            this.setState({ 
-                restaurants: restaurantData,
-                users: userData
-            });
+        fetch("https://localhost:5001/restaurant/GetAllNotVisited", {
+            method: 'get',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+            }
         })
+        .then(response => response.json())
+        .then(data => {
+            this.setState({ 
+                restaurants: data
+            });
+        });
     }
 
     handleErrorAlert = () => {
@@ -56,7 +57,6 @@ class PickRestaurant extends React.Component {
                     name: this.state.restaurants.data[randomRestaurant].name ,
                     location: this.state.restaurants.data[randomRestaurant].location,
                     cuisine: this.state.restaurants.data[randomRestaurant].cuisine,
-                    addedBy: this.state.users.data[this.state.restaurants.data[randomRestaurant].addedBy].username,
                     addedOn: this.state.restaurants.data[randomRestaurant].addedOn,
                 }
             });
@@ -64,7 +64,9 @@ class PickRestaurant extends React.Component {
             fetch("https://localhost:5001/restaurant", {
                 method: 'put',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + sessionStorage.getItem('token')
                 },
                 body: JSON.stringify({
                     id: this.state.restaurants.data[randomRestaurant].id,
@@ -111,7 +113,7 @@ class PickRestaurant extends React.Component {
                                     <h4 className="chosen-restaurant-location"><u><b>Location:</b></u> {this.state.chosenRestaurant.location}</h4>
                                     <h4 className="chosen-restaurant-cuisine"><u><b>Cuisine:</b></u> {this.state.chosenRestaurant.cuisine}</h4>
                                 </div>
-                                <p className="chosen-restaurant-user-date">This restaurant was added by {this.state.chosenRestaurant.addedBy} on {moment(this.state.chosenRestaurant.addedOn).format('MMMM Do YYYY')}.</p>
+                                <p className="chosen-restaurant-user-date">This restaurant was added on {moment(this.state.chosenRestaurant.addedOn).format('MMMM Do YYYY')}.</p>
                                 <button type="button" className="btn btn-dark" onClick={this.handleDone}>Done</button>
                             </div>     
                         : null }
