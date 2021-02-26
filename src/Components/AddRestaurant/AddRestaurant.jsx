@@ -53,7 +53,6 @@ class AddRestaurant extends React.Component {
     }
 
     handleSubmit() {
-
         if (this.state.name == '')
             alert('Enter restaurant name.');
         else if (this.state.location == '')
@@ -85,7 +84,6 @@ class AddRestaurant extends React.Component {
                 this.setState({
                     showRestaurantExistsAlert: true
                 });
-                console.log(this.state.showRestaurantExistsAlert);
             }
         });
     }
@@ -129,7 +127,7 @@ class AddRestaurant extends React.Component {
                                 <option key={c}>{c}</option>
                             ))}
                         </select>
-                        <button type="button" className="btn btn-success add-restaurant-submit" onClick={this.handleSubmit}>Submit</button>
+                        <button type="reset" className="btn btn-success add-restaurant-submit" onClick={this.handleSubmit}>Submit</button>
                     </form>
                 </div>
             </div>
