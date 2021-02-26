@@ -24,7 +24,14 @@ class AddRestaurant extends React.Component {
    }
 
    componentDidMount() {
-    fetch("https://localhost:5001/restaurant/GetAllCuisines")
+    fetch("https://localhost:5001/restaurant/GetAllCuisines", {
+        method: 'get',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+        }
+    })
     .then(response => response.json())
     .then (data => {
         this.setState({ 
@@ -57,7 +64,9 @@ class AddRestaurant extends React.Component {
         fetch('https://localhost:5001/restaurant', {
             method: 'post',
             headers: {
-                'Content-Type': 'application/json'
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + sessionStorage.getItem('token')
             },
             body: JSON.stringify({
                 name: this.state.name,
