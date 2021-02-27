@@ -18,7 +18,7 @@ class ViewUnvisitedRestaurants extends React.Component {
    }
 
     componentDidMount() {
-        fetch("https://localhost:5001/restaurant/GetAllNotVisited", {
+        fetch("https://localhost:5001/restaurant/GetUnvisited", {
             method: 'get',
             headers: {
                 'Accept': 'application/json',
