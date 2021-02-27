@@ -1,6 +1,6 @@
 /* Loading CSS Start */
 
-.view-restaurants-container-loading {
+.view-unvisited-restaurants-container-loading {
     background: url("../../Images/view-restaurants.jpeg");
     width: 100%;
     height: 100vh;
@@ -10,17 +10,17 @@
     text-align: center;
 }
 
-.view-restaurants-loading-gif {
+.view-unvisited-restaurants-loading-gif {
     margin: 50px 0 30px 0; 
 }
 
-.view-restaurants-loading-text {
+.view-unvisited-restaurants-loading-text {
     font-size: 25px;
 }
 
 /* Loading CSS End */
 
-.view-restaurants-container {
+.view-unvisited-restaurants-container {
     background: url("../../Images/view-restaurants.jpeg");
     width: 100%;
     background-position: center;
@@ -31,43 +31,43 @@
 
 /* Header CSS */
 
-.view-restaurants-header {
+.view-unvisited-restaurants-header {
     display: flex;
     justify-content: space-between;
 }
 
-.view-restaurants-title {
+.view-unvisited-restaurants-title {
     width: 100%;
     margin: 30px 0 20px 0;
 }
 
-.view-restaurants-go-back {
+.view-unvisited-restaurants-go-back {
     margin: 45px 0 20px 0;
     width: 150px;
     text-align: right;
     color: #000;
 }
 
-.view-restaurants-go-back:hover {
+.view-unvisited-restaurants-go-back:hover {
     color: #000;
     font-weight: bold;
 }
 
 /* Content CSS */
 
-.view-restaurants-content-container {
+.view-unvisited-restaurants-content-container {
     display: flex;
     justify-content: center;
 }
 
-.view-restaurants-content {
+.view-unvisited-restaurants-content {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
 }
 
-.restaurant-container {
+.unvisited-restaurant-container {
     border: 2px solid black;
     margin: 20px;
     width: 280px;
@@ -77,11 +77,11 @@
     text-align: center;
 }
 
-.restaurant-name {
+.unvisited-restaurant-name {
     padding: 15px 0 15px 0;
     border-bottom: 2px solid black;
 }
 
-.restaurant-location {
+.unvisited-restaurant-location {
     margin-top: 25px;
 }

@@ -109,7 +109,8 @@ class AddRestaurant extends React.Component {
                             <h4>Uh-oh!</h4>
                             <hr />
                             <p>It looks like the restaurant you are trying to add already exists. Check the View Restaurants page to confirm.</p>
-                            <NavLink tag={Link} className="view-restaurants-alert-link" to="/ViewRestaurants">View Restaurants</NavLink>
+                            <NavLink tag={Link} className="view-restaurants-alert-link" to="/ViewUnvisitedRestaurants">View Unvisited Restaurants</NavLink>
+                            <NavLink tag={Link} className="view-restaurants-alert-link" to="/">View Visited Restaurants</NavLink>
                         </UncontrolledAlert> 
                         : null}
                     <form>

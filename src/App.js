@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Home from './Components/Home/Home';
-import ViewRestaurants from './Components/ViewRestaurants/ViewRestaurants';
+import ViewUnvisitedRestaurants from './Components/ViewUnvisitedRestaurants/ViewUnvisitedRestaurants';
 import Menu from './Components/Menu/Menu';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 import AddRestaurant from './Components/AddRestaurant/AddRestaurant';
@@ -22,7 +22,7 @@ class App extends React.Component {
             <Route exact path="/" component={Home} />
             <ProtectedRoute path="/Home" component={props => <Menu {...props } /> } />
             <ProtectedRoute path="/Menu" component={props => <Menu {...props } /> } />
-            <ProtectedRoute path="/ViewRestaurants" component={props => <ViewRestaurants {...props } /> } />
+            <ProtectedRoute path="/ViewUnvisitedRestaurants" component={props => <ViewUnvisitedRestaurants {...props } /> } />
             <ProtectedRoute path="/AddRestaurant" component={props => <AddRestaurant {...props } /> } />
             <ProtectedRoute path="/PickRestaurant" component={props => <PickRestaurant {...props } /> } />
             <Route component={NotFound} />

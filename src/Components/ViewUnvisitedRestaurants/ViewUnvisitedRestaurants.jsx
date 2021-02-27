@@ -1,11 +1,11 @@
 import moment from 'moment';
 import React from 'react';
-import './ViewRestaurants.css'
+import './ViewUnvisitedRestaurants.css'
 import { Link } from 'react-router-dom';
 import { NavLink } from 'reactstrap';
 import Loading from '../../Images/loading.gif';
 
-class ViewRestaurants extends React.Component {
+class ViewUnvisitedRestaurants extends React.Component {
 
     constructor(props) {
         super(props);
@@ -43,19 +43,19 @@ class ViewRestaurants extends React.Component {
                     </div>)
         } else {
         return (
-            <div className="view-restaurants-container">
-                <div className="container view-restaurants-header">
-                    <h1 className="view-restaurants-title">Pick Restaurant</h1>
-                    <NavLink className="view-restaurants-go-back" tag={Link} to="/Menu">Main Menu</NavLink>
+            <div className="view-unvisited-restaurants-container">
+                <div className="view-unvisited-restaurants-header container">
+                    <h1 className="view-unvisited-restaurants-title">Pick Restaurant</h1>
+                    <NavLink className="view-unvisited-restaurants-go-back" tag={Link} to="/Menu">Main Menu</NavLink>
                 </div>
-                <div className="view-restaurants-content-container container">
-                    <div className="view-restaurants-content">
+                <div className="view-unvisited-restaurants-content-container container">
+                    <div className="view-unvisited-restaurants-content">
                         {Array.isArray(this.state.restaurants.data) && this.state.restaurants.data.map( res => (
-                            <div className="restaurant-container" key={res.id}>
-                                <h4 className="restaurant-name">{res.name}</h4>
-                                <p className="restaurant-location">{res.location}</p>
-                                <p className="restaurant-cuisine">{res.cuisine}</p>
-                                <small className="restaurant-user-details">Added on {moment(res.addedOn).format('MMMM Do YYYY')}</small>
+                            <div className="unvisited-restaurant-container" key={res.id}>
+                                <h4 className="unvisited-restaurant-name">{res.name}</h4>
+                                <p className="unvisited-restaurant-location">{res.location}</p>
+                                <p className="unvisited-restaurant-cuisine">{res.cuisine}</p>
+                                <small className="unvisited-restaurant-user-details">Added on {moment(res.addedOn).format('MMMM Do YYYY')}</small>
                             </div>
                         ))}
                     </div>
@@ -65,4 +65,4 @@ class ViewRestaurants extends React.Component {
     }
 }
 
-export default ViewRestaurants;
+export default ViewUnvisitedRestaurants;
