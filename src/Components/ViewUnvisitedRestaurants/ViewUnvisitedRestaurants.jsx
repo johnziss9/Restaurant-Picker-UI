@@ -1,6 +1,7 @@
 import moment from 'moment';
 import React from 'react';
 import './ViewUnvisitedRestaurants.css'
+import Header from '../Header/Header';
 import { Link } from 'react-router-dom';
 import { NavLink } from 'reactstrap';
 import Loading from '../../Images/loading.gif';
@@ -44,9 +45,8 @@ class ViewUnvisitedRestaurants extends React.Component {
         } else {
         return (
             <div className="view-unvisited-restaurants-container">
-                <div className="view-unvisited-restaurants-header container">
-                    <h1 className="view-unvisited-restaurants-title">Pick Restaurant</h1>
-                    <NavLink className="view-unvisited-restaurants-go-back" tag={Link} to="/Menu">Main Menu</NavLink>
+                <div className="container">
+                    <Header title="View Unvisited Restaurants" />
                 </div>
                 <div className="view-unvisited-restaurants-content-container container">
                     <div className="view-unvisited-restaurants-content">

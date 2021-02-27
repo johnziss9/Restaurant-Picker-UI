@@ -29,30 +29,6 @@
     background-attachment: fixed;
 }
 
-/* Header CSS */
-
-.view-unvisited-restaurants-header {
-    display: flex;
-    justify-content: space-between;
-}
-
-.view-unvisited-restaurants-title {
-    width: 100%;
-    margin: 30px 0 20px 0;
-}
-
-.view-unvisited-restaurants-go-back {
-    margin: 45px 0 20px 0;
-    width: 150px;
-    text-align: right;
-    color: #000;
-}
-
-.view-unvisited-restaurants-go-back:hover {
-    color: #000;
-    font-weight: bold;
-}
-
 /* Content CSS */
 
 .view-unvisited-restaurants-content-container {

@@ -1,5 +1,6 @@
 import React from 'react';
 import './AddRestaurant.css'
+import Header from '../Header/Header';
 import { Link } from 'react-router-dom';
 import { NavLink, UncontrolledAlert } from 'reactstrap';
 import _ from 'lodash';
@@ -93,10 +94,7 @@ class AddRestaurant extends React.Component {
         return (
             <div className="add-restaurant-container">
                 <div className="container flex-column">
-                    <div className="add-restaurant-header">
-                        <h1 className="add-restaurant-title">Add Restaurant</h1>
-                        <NavLink className="add-restaurant-go-back" tag={Link} to="/Menu">Main Menu</NavLink>
-                    </div>
+                    <Header title="Add Restaurant" />
                     {this.state.showThankYouAlert ?
                         <UncontrolledAlert color="success">
                             <h4>Thank you!</h4>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './PickRestaurant.css'
+import Header from '../Header/Header';
 import { Link } from 'react-router-dom';
 import { NavLink, UncontrolledAlert } from 'reactstrap';
 import moment from 'moment';
@@ -92,10 +93,7 @@ class PickRestaurant extends React.Component {
         return (
             <div className="pick-restaurant-container">
                 <div className="container flex-column">
-                    <div className="pick-restaurant-header">
-                        <h1 className="pick-restaurant-title">Pick Restaurant</h1>
-                        <NavLink className="pick-restaurant-go-back" tag={Link} to="/Menu">Main Menu</NavLink>
-                    </div>
+                    <Header title="Pick Restaurant" />
                     {this.state.showErrorAlert 
                         ? <UncontrolledAlert color="danger">
                             <h4>Uh-oh!</h4>
