@@ -2,6 +2,7 @@ import React from 'react';
 import './AddRestaurant.css'
 import { Link } from 'react-router-dom';
 import { NavLink, UncontrolledAlert } from 'reactstrap';
+import _ from 'lodash';
 
 class AddRestaurant extends React.Component {
 
@@ -123,7 +124,7 @@ class AddRestaurant extends React.Component {
                         <label htmlFor="restaurant-cuisine">Cuisine</label>
                         <select className="form-control" onChange={this.handleCuisine}>
                             <option>Select Cuisine</option>
-                            {Array.isArray(this.state.cuisines.data) && this.state.cuisines.data.map( c => (
+                            {Array.isArray(this.state.cuisines.data) && _.orderBy(this.state.cuisines.data).map( c => (
                                 <option key={c}>{c}</option>
                             ))}
                         </select>
