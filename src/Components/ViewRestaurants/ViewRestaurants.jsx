@@ -48,8 +48,8 @@ class ViewRestaurants extends React.Component {
                     <h1 className="view-restaurants-title">Pick Restaurant</h1>
                     <NavLink className="view-restaurants-go-back" tag={Link} to="/Menu">Main Menu</NavLink>
                 </div>
-                <div className="view-restaurants-lower-container">
-                    <div className="view-restaurants">
+                <div className="view-restaurants-content-container container">
+                    <div className="view-restaurants-content">
                         {Array.isArray(this.state.restaurants.data) && this.state.restaurants.data.map( res => (
                             <div className="restaurant-container" key={res.id}>
                                 <h4 className="restaurant-name">{res.name}</h4>
