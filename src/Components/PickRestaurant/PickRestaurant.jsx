@@ -26,7 +26,7 @@ class PickRestaurant extends React.Component {
     }
  
     componentDidMount() {
-        fetch("https://localhost:5001/restaurant/GetUnvisited", {
+        fetch("https://localhost:5001/restaurant/GetNotVisited", {
             method: 'get',
             headers: {
                 'Accept': 'application/json',
