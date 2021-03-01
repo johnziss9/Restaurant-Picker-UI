@@ -35,6 +35,9 @@ class Menu extends React.Component {
                         <NavLink className="menu-nav-link" tag={Link} to="/ViewRestaurants">View Restaurants</NavLink>
                     </li>
                     <li className="nav-item">
+                        <NavLink className="menu-nav-link" tag={Link} to="/MyRestaurants">My Restaurants</NavLink>
+                    </li>
+                    <li className="nav-item">
                         <NavLink className="menu-nav-link" tag={Link} to="/PickRestaurant">Pick Restaurant</NavLink>
                     </li>
                 </ul>

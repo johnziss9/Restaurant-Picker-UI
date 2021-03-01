@@ -1,4 +1,4 @@
-.view-restaurants-container {
+.user-restaurants-container {
     background: url("../../Images/view-restaurants.jpeg");
     width: 100%;
     min-height: 100vh;
@@ -10,7 +10,7 @@
 
 /* Loading CSS */
 
-.view-restaurants-container-loading {
+.user-restaurants-container-loading {
     background: url("../../Images/view-restaurants.jpeg");
     width: 100%;
     height: 100vh;
@@ -21,57 +21,29 @@
     align-items: center;
 }
 
-.view-restaurants-loading-gif {
+.user-restaurants-loading-gif {
     margin: 50px 0 30px 0; 
 }
 
-.view-restaurants-loading-text {
+.user-restaurants-loading-text {
     font-size: 25px;
-}
-
-/* Menu */
-
-.view-restaurant-buttons-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px 0 10px 0;
-}
-
-.view-restaurant-buttons-container > .view-filtered-restaurants {
-    font-size: 19px;
-    color: #000;
-}
-
-.view-restaurant-buttons-container > .view-filtered-restaurants:hover {
-    color: #000;
-}
-
-.view-restaurant-buttons-container > .active {
-    border-bottom: 2px solid #000;
-}
-
-.view-restaurant-buttons-container > .view-filtered-restaurants:focus {
-    outline: none;
-    box-shadow: none;
-    text-decoration: none;
 }
 
 /* Content CSS */
 
-.view-restaurants-content-container {
+.user-restaurants-content-container {
     display: flex;
     justify-content: center;
 }
 
-.view-restaurants-content {
+.user-restaurants-content {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
 }
 
-.view-restaurant-container {
+.user-restaurant-container {
     border: 2px solid black;
     margin: 20px;
     width: 280px;
@@ -81,11 +53,15 @@
     text-align: center;
 }
 
-.view-restaurant-name {
+.user-restaurant-name {
     padding: 15px 0 15px 0;
     border-bottom: 2px solid black;
 }
 
-.view-restaurant-location {
-    margin-top: 25px;
+.user-restaurant-location {
+    margin-top: 15px;
+}
+
+.user-restaurant-visited {
+    margin-top: 10px;
 }

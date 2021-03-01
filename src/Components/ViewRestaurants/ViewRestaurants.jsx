@@ -12,7 +12,6 @@ class ViewRestaurants extends React.Component {
         isLoaded: false,
         notVisitedRestaurants: [],
         visitedRestaurants: [],
-        users: [],
         showVisited: false
        }
    }
@@ -83,21 +82,21 @@ class ViewRestaurants extends React.Component {
                     {!this.state.showVisited ?
                     <div className="view-restaurants-content">
                         {Array.isArray(this.state.notVisitedRestaurants.data) && this.state.notVisitedRestaurants.data.map( res => (
-                            <div className="restaurant-container" key={res.id}>
-                                <h4 className="restaurant-name">{res.name}</h4>
-                                <p className="restaurant-location">{res.location}</p>
-                                <p className="restaurant-cuisine">{res.cuisine}</p>
-                                <small className="restaurant-user-details">Added on {moment(res.addedOn).format('MMMM Do YYYY')}</small>
+                            <div className="view-restaurant-container" key={res.id}>
+                                <h4 className="view-restaurant-name">{res.name}</h4>
+                                <p className="view-restaurant-location">{res.location}</p>
+                                <p className="view-restaurant-cuisine">{res.cuisine}</p>
+                                <small className="view-restaurant-user-details">Added on {moment(res.addedOn).format('MMMM Do YYYY')}</small>
                             </div>
                         ))}
                     </div> :
                     <div className="view-restaurants-content">
                         {Array.isArray(this.state.visitedRestaurants.data) && this.state.visitedRestaurants.data.map( res => (
-                            <div className="restaurant-container" key={res.id}>
-                                <h4 className="restaurant-name">{res.name}</h4>
-                                <p className="restaurant-location">{res.location}</p>
-                                <p className="restaurant-cuisine">{res.cuisine}</p>
-                                <small className="restaurant-user-details">Added on {moment(res.addedOn).format('MMMM Do YYYY')}</small>
+                            <div className="view-restaurant-container" key={res.id}>
+                                <h4 className="view-restaurant-name">{res.name}</h4>
+                                <p className="view-restaurant-location">{res.location}</p>
+                                <p className="view-restaurant-cuisine">{res.cuisine}</p>
+                                <small className="view-restaurant-user-details">Added on {moment(res.addedOn).format('MMMM Do YYYY')}</small>
                             </div>
                         ))}
                     </div> }
