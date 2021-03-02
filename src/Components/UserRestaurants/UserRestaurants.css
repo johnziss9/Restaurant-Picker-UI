@@ -1,5 +1,5 @@
 .user-restaurants-container {
-    background: url("../../Images/view-restaurants.jpeg");
+    background: url("../../Images/user-restaurants.jpeg");
     width: 100%;
     min-height: 100vh;
     background-position: center;
@@ -11,7 +11,7 @@
 /* Loading CSS */
 
 .user-restaurants-container-loading {
-    background: url("../../Images/view-restaurants.jpeg");
+    background: url("../../Images/user-restaurants.jpeg");
     width: 100%;
     height: 100vh;
     background-position: center;
