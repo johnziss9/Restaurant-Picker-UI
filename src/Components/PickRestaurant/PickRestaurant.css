@@ -52,3 +52,9 @@
 .already-chosen-restaurant-title {
     margin-bottom: 40px;
 }
+
+.pick-visit-date-label,
+.pick-visit-date,
+.pick-restaurant-button {
+    margin: 0 10px 0 10px;
+}

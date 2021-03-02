@@ -21,7 +21,8 @@ class PickRestaurant extends React.Component {
             },
             showChosenRestaurant: false,
             showErrorAlert: false,
-            showDateAlert: false
+            showDateAlert: false,
+            showForm: true
         }
 
         this.handleRandom = this.handleRandom.bind(this);
@@ -83,7 +84,8 @@ class PickRestaurant extends React.Component {
                     location: this.state.restaurants.data[randomRestaurant].location,
                     cuisine: this.state.restaurants.data[randomRestaurant].cuisine,
                     addedOn: this.state.restaurants.data[randomRestaurant].addedOn,
-                }
+                },
+                showForm: false
             });
 
             fetch("https://localhost:5001/restaurant", {
@@ -149,7 +151,7 @@ class PickRestaurant extends React.Component {
                                     <h4 className="chosen-restaurant-cuisine"><u><b>Cuisine:</b></u> {this.state.chosenRestaurant.cuisine}</h4>
                                 </div>
                                 <p className="chosen-restaurant-user-date">This restaurant was added on {moment(this.state.chosenRestaurant.addedOn).format('MMMM Do YYYY')}.</p>
-                                <button type="button" className="btn btn-dark" onClick={this.handleDone}>Done</button>
+                                <button type="button" className="btn btn-dark" onClick={this.handleDone}>Save & Exit</button>
                             </div>     
                         : null }
                     {this.state.visitedRestaurant.data != null ?
@@ -165,15 +167,13 @@ class PickRestaurant extends React.Component {
                         </div> 
                     </div>
                     :
-                    <div>
-                        <div>
-                            <div className="form-group row">
-                                <label>Select date of visit:</label>
-                                <input className="form-control" type="date" id="example-date-input" onSelect={this.handleDate} />
-                            </div>
-                            <div className="form-group row">
-                                <button type="button" className="btn btn-dark pick-restaurant-button" onClick={this.handleRandom}>Pick a Random Restaurant</button>
-                            </div>
+                    <div className={!this.state.showForm ? "d-none" : "pick-restaurant-form"} >
+                        <div className="form-group row">
+                            <label className="pick-visit-date-label">Select date of visit:</label>
+                            <input className="form-control pick-visit-date" type="date" id="example-date-input" onSelect={this.handleDate} />
+                        </div>
+                        <div className="form-group row">
+                            <button type="button" className="btn btn-dark pick-restaurant-button" onClick={this.handleRandom}>Pick a Random Restaurant</button>
                         </div>
                     </div>}
                 </div>
