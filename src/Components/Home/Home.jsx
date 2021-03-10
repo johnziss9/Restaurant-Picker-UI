@@ -39,7 +39,7 @@ import { UncontrolledAlert } from 'reactstrap';
     }
 
     handleLogin(event) {
-        fetch('http://localhost:8000/auth/Login', {
+        fetch('http://localhost:80/auth/Login', {
             method: 'post',
             headers: {
                 'Accept': 'application/json',
