@@ -31,7 +31,7 @@ class PickRestaurant extends React.Component {
 
     componentDidMount() {
         Promise.all([
-            fetch('https://localhost:8000/restaurant/GetNotVisited', {
+            fetch('http://localhost:8000/restaurant/GetNotVisited', {
                 method: 'get',
                 headers: {
                     'Accept': 'application/json',
@@ -40,7 +40,7 @@ class PickRestaurant extends React.Component {
                 }
             })
             .then(res => res.json()),
-            fetch('https://localhost:8000/restaurant/GetVisitedSingle',  {
+            fetch('http://localhost:8000/restaurant/GetVisitedSingle',  {
                 method: 'get',
                 headers: {
                     'Accept': 'application/json',
@@ -88,7 +88,7 @@ class PickRestaurant extends React.Component {
                 showForm: false
             });
 
-            fetch("https://localhost:8000/restaurant", {
+            fetch("http://localhost:8000/restaurant", {
                 method: 'put',
                 headers: {
                     'Accept': 'application/json',
