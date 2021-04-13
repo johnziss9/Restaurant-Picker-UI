@@ -39,7 +39,7 @@ import { UncontrolledAlert } from 'reactstrap';
     }
 
     handleLogin(event) {
-        fetch('https://192.168.0.30:5001/auth/Login', {
+        fetch('https://whiletrueconnect.ddns.net/auth/Login', {
             method: 'post',
             headers: {
                 'Accept': 'application/json',

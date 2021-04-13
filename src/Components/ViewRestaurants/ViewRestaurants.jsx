@@ -18,7 +18,7 @@ class ViewRestaurants extends React.Component {
 
     componentDidMount() {
         Promise.all([
-            fetch('https://localhost:5001/restaurant/GetNotVisited', {
+            fetch('https://whiletrueconnect.ddns.net/restaurant/GetNotVisited', {
                 method: 'get',
                 headers: {
                     'Accept': 'application/json',
@@ -27,7 +27,7 @@ class ViewRestaurants extends React.Component {
                 }
             })
             .then(res => res.json()),
-            fetch('https://localhost:5001/restaurant/GetVisited',  {
+            fetch('https://whiletrueconnect.ddns.net/restaurant/GetVisited',  {
                 method: 'get',
                 headers: {
                     'Accept': 'application/json',
