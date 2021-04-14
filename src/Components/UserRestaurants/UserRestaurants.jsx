@@ -15,7 +15,7 @@ class UserRestaurants extends React.Component {
    }
 
     componentDidMount() {
-        fetch('https://whiletrueconnect.ddns.net/restaurant/GetUserRestaurants', {
+        fetch('https://192.168.0.30/restaurant/GetUserRestaurants', {
             method: 'get',
             headers: {
                 'Accept': 'application/json',

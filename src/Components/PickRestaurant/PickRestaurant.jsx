@@ -31,7 +31,7 @@ class PickRestaurant extends React.Component {
 
     componentDidMount() {
         Promise.all([
-            fetch('https://whiletrueconnect.ddns.net/restaurant/GetNotVisited', {
+            fetch('https://192.168.0.30/restaurant/GetNotVisited', {
                 method: 'get',
                 headers: {
                     'Accept': 'application/json',
@@ -40,7 +40,7 @@ class PickRestaurant extends React.Component {
                 }
             })
             .then(res => res.json()),
-            fetch('https://whiletrueconnect.ddns.net/restaurant/GetVisitedSingle',  {
+            fetch('https://192.168.0.30/restaurant/GetVisitedSingle',  {
                 method: 'get',
                 headers: {
                     'Accept': 'application/json',
@@ -88,7 +88,7 @@ class PickRestaurant extends React.Component {
                 showForm: false
             });
 
-            fetch("https://whiletrueconnect.ddns.net/restaurant", {
+            fetch("https://192.168.0.30/restaurant", {
                 method: 'put',
                 headers: {
                     'Accept': 'application/json',
